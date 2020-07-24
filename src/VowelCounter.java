@@ -9,42 +9,45 @@ public class VowelCounter {
 
 		char letter, a, e, i, o, u, con;
 		String str;
-		int position, end, aCount = 0, eCount = 0, iCount = 0, oCount = 0, uCount = 0, conCount = 0;
+		int position, end, aCount = 0, eCount = 0, iCount = 0, oCount = 0, uCount = 0, nonCount = 0;
 
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("Enter a phrase or sentence");
+		System.out.println("Enter a phrase or sentence: ");
 		str = scan.nextLine();
 
 		position = 0;
-		end = str.length() - 1;
+		end = str.length();
 
 		do {
 			letter = str.charAt(position);
 
 			switch (letter) {
-			case 'A':
-				aCount = aCount++;
+			case 'a':
+				aCount = aCount + 1;
 				break;
-			case 'E':
-				eCount = eCount++;
+			case 'e':
+				eCount = eCount + 1;
 				break;
-			case 'I':
-				iCount = iCount++;
+			case 'i':
+				iCount = iCount + 1;
 				break;
-			case 'O':
-				oCount = oCount++;
+			case 'o':
+				oCount = oCount + 1;
 				break;
-			case 'U':
-				uCount = uCount++;
+			case 'u':
+				uCount = uCount + 1;
 				break;
+			default:
+				nonCount = nonCount + 1;
 			}
 			position++;
-			
-		} while (str.charAt(position) < end);
+
+		} while (position < end);
 
 		scan.close();
 
-		System.out.println(aCount + " " + eCount);
+		System.out.println("The number of a's: " + aCount + "  e's: " + eCount + "  i's: " + iCount + "  o's: " + oCount
+				+ "  u's: " + uCount + " " + "non-vowel character's: " + nonCount);
 	}
 }
